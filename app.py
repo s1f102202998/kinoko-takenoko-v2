@@ -32,10 +32,11 @@ def answer():
         import re
         m = re.sub(r'&',r'&amp;',m)
         m = re.sub(r'<', r'&lt;', m)
-        m= re.sub(r'>', r'&gt;', m)
+        m = re.sub(r'>', r'&gt;', m)
         # メッセージのフォーマット
-        m= re.sub(r'\*(.+)\*', r'<strong>\1</strong>', m)
-        m= re.sub(r'(\d{2,3})-\d+-\d+', r'\1-****-****', m)
+        m = re.sub(r'\*(.+)\*', r'<strong>\1</strong>', m)
+        m = re.sub(r'(\d{2,3})-\d+-\d+', r'\1-****-****', m)
+        m = re.sub(r'(https?://[a-zA-Z0-9-_^/?:&=%+#.]+)',r'<a href=\1>\1</a>',m)
         message_html+='<div class="alert{1}" role="alert">{0}</div>\n'.format(m, 'alert-warning ms-5' if i%2==0 else 'alert-success me-5')
 
     #進捗グラフの更新
